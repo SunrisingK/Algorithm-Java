@@ -3,21 +3,15 @@
 ## 1. 动态数组- `ArrayList<T>`
 
 ```java
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
-// 1. 创建
+// 创建
 List<Integer> list = new ArrayList<>(); // 推荐使用List接口
 ArrayList<String> list2 = new ArrayList<>();
 
-// 2. 初始化（带初始容量）
+// 初始化
 List<Integer> listWithCapacity = new ArrayList<>(20); // 初始容量20
-
-// 3. 初始化（带初始元素）
 List<Integer> initializedList = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
 
-// 4. 基本操作
+// 基本操作
 list.add(10);                    // 添加到末尾，O(1) 平摊
 list.add(0, 5);                  // 插入到指定位置，O(n)
 list.addAll(Arrays.asList(6, 7)); // 批量添加
@@ -33,7 +27,7 @@ list.clear();                    // 清空所有元素
 boolean isEmpty = list.isEmpty(); // 是否为空
 int size = list.size();          // 元素个数
 
-// 5. 查找
+// 查找
 boolean contains = list.contains(5); // 是否包含，O(n)
 int index = list.indexOf(5);      // 第一次出现的索引，O(n)
 int lastIndex = list.lastIndexOf(5); // 最后一次出现的索引，O(n)
@@ -294,11 +288,11 @@ public int bfsShortestPath(int start, int target) {
     while (!queue.isEmpty()) {
         int current = queue.poll();
         int currentDist = distance.get(current);
-      
+    
         if (current == target) {
             return currentDist;
         }
-      
+    
         for (int neighbor : getNeighbors(current)) {
             if (!distance.containsKey(neighbor)) {
                 distance.put(neighbor, currentDist + 1);
@@ -313,13 +307,13 @@ public int bfsShortestPath(int start, int target) {
 
 ## 10. 速查表
 
-| 数据结构         | 创建                       | 添加           | 删除              | 查询                  | 遍历                             |
-| ---------------- | -------------------------- | -------------- | ----------------- | --------------------- | -------------------------------- |
-| **动态数组**     | `ArrayList<T>`             | `add()`        | `remove(index)`   | `get(index)`          | `for/get()` 或 `for-each`        |
-| **栈**           | `Deque<T> stack`           | `push()`       | `pop()`           | `peek()`              | `while(!isEmpty()) pop()`        |
-| **队列**         | `Queue<T> queue`           | `offer()`      | `poll()`          | `peek()`              | `for(T item : queue)`            |
-| **小根堆**       | `PriorityQueue<T>`         | `offer()`      | `poll()`          | `peek()`              | `while(!isEmpty()) poll()`       |
-| **大根堆**       | `PriorityQueue<T>(逆序)`   | `offer()`      | `poll()`          | `peek()`              | 同上                             |
-| **哈希表**       | `Map<K,V> map`             | `put(k,v)`     | `remove(k)`       | `get(k)`              | `entrySet()/keySet()/values()`   |
-| **哈希集**       | `Set<T> set`               | `add()`        | `remove()`        | `contains()`          | `for(T item : set)`              |
-| **有序集**       | `TreeSet<T>`               | `add()`        | `remove()`        | `ceiling()/floor()`   | 有序遍历                         |
+| 数据结构           | 创建                       | 添加         | 删除              | 查询                  | 遍历                             |
+| ------------------ | -------------------------- | ------------ | ----------------- | --------------------- | -------------------------------- |
+| **动态数组** | `ArrayList<T>`           | `add()`    | `remove(index)` | `get(index)`        | `for/get()` 或 `for-each`    |
+| **栈**       | `Deque<T> stack`         | `push()`   | `pop()`         | `peek()`            | `while(!isEmpty()) pop()`      |
+| **队列**     | `Queue<T> queue`         | `offer()`  | `poll()`        | `peek()`            | `for(T item : queue)`          |
+| **小根堆**   | `PriorityQueue<T>`       | `offer()`  | `poll()`        | `peek()`            | `while(!isEmpty()) poll()`     |
+| **大根堆**   | `PriorityQueue<T>(逆序)` | `offer()`  | `poll()`        | `peek()`            | 同上                             |
+| **哈希表**   | `Map<K,V> map`           | `put(k,v)` | `remove(k)`     | `get(k)`            | `entrySet()/keySet()/values()` |
+| **哈希集**   | `Set<T> set`             | `add()`    | `remove()`      | `contains()`        | `for(T item : set)`            |
+| **有序集**   | `TreeSet<T>`             | `add()`    | `remove()`      | `ceiling()/floor()` | 有序遍历                         |
