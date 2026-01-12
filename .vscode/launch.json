@@ -1,0 +1,25 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Debug Current Java File",
+      "request": "launch",
+
+      // ⭐ 核心：调试当前打开的 Java 文件
+      "mainClass": "${file}",
+
+      // 不依赖工程结构，直接用当前文件所在目录
+      "cwd": "${fileDirname}",
+
+      // 算法题常用：控制台输入输出
+      "console": "integratedTerminal",
+
+      // 不强制使用任何项目配置
+      "projectName": "",
+
+      // JVM 参数（可按需加）
+      "vmArgs": "-Xms64m -Xmx512m"
+    }
+  ]
+}
